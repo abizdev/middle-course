@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"],
+
+//      "@app": ["./src/app"],
+//      "@app/*": ["./src/app/*"],
+
+//      "@pages": ["./src/pages"],
+//      "@pages/*": ["./src/pages/*"],
+
+//      "@widgets": ["./src/widgets"],
+//      "@widgets/*": ["./src/widgets/*"],
+
+//      "@features": ["./src/features"],
+//      "@features/*": ["./src/features/*"],
+
+//      "@entities": ["./src/entities"],
+//      "@entities/*": ["./src/entities/*"],
+
+//      "@shared": ["./src/shared"],
+//      "@shared/*": ["./src/shared/*"]
+    }
+  },
+  "include": ["src", "global.d.ts", "./src/**/*.ts", "./src/**/*.tsx"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
