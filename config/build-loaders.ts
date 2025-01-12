@@ -4,6 +4,21 @@ import { BuildOptions } from './types/config';
 const buildLoaders = (options: BuildOptions) => {
   const { isDev } = options
 
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  };
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  };
+
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -30,6 +45,8 @@ const buildLoaders = (options: BuildOptions) => {
   }
 
   return [
+    fileLoader,
+    svgLoader,
     cssLoaders,
     typescriptLoader
   ]
