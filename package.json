@@ -11,14 +11,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.18.0",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^22.10.2",
     "@types/react-dom": "^19.0.2",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
     "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react": "^7.37.4",
     "file-loader": "^6.2.0",
+    "globals": "^15.14.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.83.0",
@@ -27,13 +34,18 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2",
+    "typescript-eslint": "^8.20.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
+    "i18next": "^24.2.1",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.0",
     "react-router": "^7.1.1"
   }
 }
