@@ -9,7 +9,7 @@ const buildDevServer = (options: BuildOptions) => {
     open: false,
     compress: true,
     historyApiFallback: true
-  }
-}
+  };
+};
 
 export default buildDevServer;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppRouter } from './providers/route-provider';
 import { useTheme } from './providers/theme-provider';
-import { classNames } from 'shared/lib';
+import { classNames } from 'shared/lib'
 import IconMoon from 'shared/assets/icons/icon-moon.svg'
 import IconSun from 'shared/assets/icons/icon-sun.svg'
 import SomeImg from 'shared/assets/some-img.jpg'

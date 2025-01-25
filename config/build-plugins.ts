@@ -4,7 +4,7 @@ import { ProgressPlugin, HotModuleReplacementPlugin, DefinePlugin } from 'webpac
 import { BuildOptions } from './types/config';
 
 const buildPlugins = (options: BuildOptions) => {
-  const { paths, isDev } = options
+  const { paths, isDev } = options;
 
   return [
     new HtmlWebpackPlugin({
@@ -16,7 +16,7 @@ const buildPlugins = (options: BuildOptions) => {
       '__IS_DEV__': isDev,
     }),
     new HotModuleReplacementPlugin()
-  ]
-}
+  ];
+};
 
 export default buildPlugins;

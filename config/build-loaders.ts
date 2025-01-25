@@ -2,7 +2,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
 const buildLoaders = (options: BuildOptions) => {
-  const { isDev } = options
+  const { isDev } = options;
 
   const svgLoader = {
     test: /\.svg$/i,
@@ -14,12 +14,12 @@ const buildLoaders = (options: BuildOptions) => {
     test: /\.(js|ts|jsx|tsx)$/,
     exclude: /node_modules/,
     use: {
-      loader: "babel-loader",
+      loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-env']
       }
     }
-  }
+  };
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif|woff|woff2)$/i,
@@ -47,13 +47,13 @@ const buildLoaders = (options: BuildOptions) => {
       },
       'sass-loader',
     ],
-  }
+  };
 
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
     exclude: /node_modules/,
-  }
+  };
 
   return [
     fileLoader,
@@ -61,7 +61,7 @@ const buildLoaders = (options: BuildOptions) => {
     babelLoader,
     cssLoaders,
     typescriptLoader
-  ]
-}
+  ];
+};
 
 export default  buildLoaders;
