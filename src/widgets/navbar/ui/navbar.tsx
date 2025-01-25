@@ -18,7 +18,7 @@ const Navbar: React.FC<Props> = (props) => {
   return (
     <div className={classNames(styles.navbar, {}, [className, ])}>
       <div className={styles.navbarLinks}>
-        <AppLink to='/main'>{t('main')}</AppLink>
+        <AppLink to='/'>{t('main')}</AppLink>
         <AppLink to='/about'>{t('about')}</AppLink>
       </div>
     </div>
