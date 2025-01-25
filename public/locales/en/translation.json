@@ -2,5 +2,6 @@
   "main": "Main Page",
   "about": "About Page",
   "lang": "English",
-  "langCollapsed": "En"
+  "langCollapsed": "En",
+  "NotFoundPage": "Page not found 404"
 }

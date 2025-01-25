@@ -1,4 +1,4 @@
-import { BuildOptions } from './types/config';
+import { BuildOptions } from '../types/config';
 
 const buildResolvers = (options: BuildOptions) => {
   const { paths } = options;

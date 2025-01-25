@@ -1,7 +1,7 @@
 import path from 'path';
 // import { fileURLToPath } from 'url';
 import { BuildEnv, BuildMode, BuildPaths } from './config/types/config';
-import buildWebpackConfig from './config/build-webpack-config';
+import buildWebpackConfig from './config/build/build-webpack-config';
 import 'webpack-dev-server';
 
 export default (env: BuildEnv) => {
