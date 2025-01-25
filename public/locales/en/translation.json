@@ -1,4 +1,4 @@
 {
-  "testText": "test translation",
-  "changeLang": "changeLang"
+  "main": "Main Page",
+  "about": "About Page"
 }
