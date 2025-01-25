@@ -1,3 +1,3 @@
-import PageLoader from 'widgets/page-loader/page-loader';
+import PageLoader from './page-loader';
 
 export { PageLoader }
