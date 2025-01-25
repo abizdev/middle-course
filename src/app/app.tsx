@@ -4,6 +4,7 @@ import { Navbar } from 'widgets/navbar';
 import { classNames } from 'shared/lib';
 import { AppRouter } from './providers/route-provider';
 import { useTheme } from './providers/theme-provider';
+import { Sidebar } from 'widgets/sidebar';
 import './styles/index.scss'
 
 // const Component = () => {
@@ -29,6 +30,7 @@ const App: React.FC = () => {
       <React.Suspense fallback={''}>
         <Navbar />
         <div className="content-page">
+          <Sidebar />
           <AppRouter />
         </div>
       </React.Suspense>
