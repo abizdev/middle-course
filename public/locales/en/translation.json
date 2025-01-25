@@ -1,4 +1,6 @@
 {
   "main": "Main Page",
-  "about": "About Page"
+  "about": "About Page",
+  "lang": "English",
+  "langCollapsed": "En"
 }

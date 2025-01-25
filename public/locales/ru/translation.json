@@ -1,4 +1,6 @@
 {
-  "testText": "Тестовый перевод",
-  "changeLang": "changeLang"
+  "main": "Главная",
+  "about": "О нас",
+  "lang": "Русский",
+  "langCollapsed": "Ру"
 }
