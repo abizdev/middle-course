@@ -3,5 +3,6 @@
   "about": "О нас",
   "lang": "Русский",
   "langCollapsed": "Ру",
-  "NotFoundPage": "Страница не найдена 404"
+  "NotFoundPage": "Страница не найдена 404",
+  "toggleCollapse": "свернуть развернуть"
 }

@@ -6,4 +6,10 @@ describe('Button', () => {
     render(<Button variant={ThemeButton.CLEAR}>Button</Button>);
     expect(screen.getByText('Button')).toBeInTheDocument()
   })
+
+  test('clear them e', () => {
+    render(<Button variant={ThemeButton.CLEAR}>Button</Button>);
+    expect(screen.getByText('Button').className).toMatch(/clear/);
+    screen.debug()
+  })
 })
