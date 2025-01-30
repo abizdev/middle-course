@@ -1,3 +1,3 @@
 import PageError from './page-error';
 
-export { PageError }
+export { PageError };
