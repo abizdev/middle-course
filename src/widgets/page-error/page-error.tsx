@@ -1,11 +1,11 @@
 import React from 'react';
 import { AppLink, Button, ThemeButton } from 'shared/ui';
 
-import * as styles from './page-error.module.scss';
+import styles from './page-error.module.scss';
 
 const PageError: React.FC = ({}) => {
   return (
-    <div className={styles.PageError}>
+    <div className={styles.pageError}>
       <h1>Something went wrong</h1>
       <Button variant={ThemeButton.CLEAR}>
         <AppLink to='/'>Go to main page</AppLink>

@@ -1,9 +1,9 @@
 import React from 'react';
-import * as classNames from './style.module.scss';
+import styles from './style.module.scss';
 
 const MainPage: React.FC = () => {
   return (
-    <div className={classNames.testStyle}>
+    <div className={styles.testStyle}>
       main page
     </div>
   );

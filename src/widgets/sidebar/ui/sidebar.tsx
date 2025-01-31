@@ -3,9 +3,9 @@ import { classNames } from 'shared/lib';
 import { Button, ThemeButton } from 'shared/ui';
 import { ThemeSwitcher } from 'widgets/theme-switcher';
 import { LangSwitcher } from 'widgets/lang-switcher';
-
-import * as styles from './sidebar.module.scss';
 import { useTranslation } from 'react-i18next';
+
+import styles from './sidebar.module.scss';
 
 interface Props {
   className?: string;
@@ -18,7 +18,7 @@ const Sidebar: React.FC<Props> = (props) => {
   const toggleCollapse = () => setCollapsed(prev => !prev)
 
   return (
-    <div data-testid='sidebar' className={classNames(styles.Sidebar, {[styles.collapsed]: collapsed}, [className])}>
+    <div data-testid='sidebar' className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
       <Button
         data-testid='sidebar-toggle'
         variant={ThemeButton.CLEAR}
