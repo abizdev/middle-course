@@ -7,7 +7,7 @@ import { BuildOptions } from '../types/config';
 const buildPlugins = (options: BuildOptions) => {
   const { paths, isDev } = options;
 
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html
     }),
@@ -16,11 +16,16 @@ const buildPlugins = (options: BuildOptions) => {
     new DefinePlugin({
       '__IS_DEV__': isDev,
     }),
-    new HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false
-    })
   ];
+
+  if (isDev) {
+    plugins.push(new HotModuleReplacementPlugin());
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false
+    }));
+  }
+
+  return plugins
 };
 
 export default buildPlugins;
