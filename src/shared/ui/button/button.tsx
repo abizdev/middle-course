@@ -4,7 +4,9 @@ import { classNames } from 'shared/lib';
 import styles from './button.module.scss';
 
 export enum ThemeButton {
+  PRIMARY = 'primary',
   CLEAR = 'clear',
+  OUTLINE = 'outline',
 }
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {

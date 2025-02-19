@@ -1,3 +1,4 @@
+// import React from 'react';
 import { MainPage, AboutPage, NotFoundPage } from 'pages';
 
 enum AppRoutes {

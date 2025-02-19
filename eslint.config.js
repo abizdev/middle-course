@@ -38,14 +38,6 @@ export default [
       'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
       'max-len': ['error', { 'ignoreComments': true, code: 100 }]
     },
-    // overrides: [
-    //   {
-    //     files: ['**/src/**/*.test.{ts, tsx}'],
-    //     rules: {
-    //       'i18next/no-literal-string': 'off'
-    //     }
-    //   }
-    // ]
   },
   
   pluginReact.configs.flat.recommended,

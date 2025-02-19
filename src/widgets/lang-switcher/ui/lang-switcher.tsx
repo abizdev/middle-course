@@ -21,7 +21,7 @@ const LangSwitcher: React.FC<Props> = (props) => {
         variant={ThemeButton.CLEAR}
         onClick={toggleLang}
       >
-        {collapsed ? t('langCollapsed') : t('lang')}
+        {collapsed ? t('lang') : t('langCollapsed')}
       </Button>
     </div>
   )

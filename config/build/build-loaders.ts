@@ -1,5 +1,5 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from '../types/config';
+import { buildCssLoader } from './loaders/build-css-loader';
 
 const buildLoaders = (options: BuildOptions) => {
   const { isDev } = options;
@@ -30,25 +30,7 @@ const buildLoaders = (options: BuildOptions) => {
     ],
   };
 
-  const cssLoaders = {
-    test: /\.s[ac]ss$/i,
-    use: [
-      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-      {
-        loader: 'css-loader',
-        options: {
-          modules: {
-            namedExport: false,
-            auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-            localIdentName: isDev
-              ? '[path][name]__[local]--[hash:base64:8]'
-              : '[hash:base64:8]'
-          },
-        }
-      },
-      'sass-loader',
-    ],
-  };
+  const cssLoaders = buildCssLoader(isDev);
 
   const typescriptLoader = {
     test: /\.tsx?$/,
