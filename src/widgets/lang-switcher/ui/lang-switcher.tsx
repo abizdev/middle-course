@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ThemeButton } from 'shared/ui';
+import { Button, ButtonTheme } from 'shared/ui';
 
 interface Props {
   collapsed: boolean;
@@ -18,7 +18,7 @@ const LangSwitcher: React.FC<Props> = (props) => {
   return (
     <div className={className}>
       <Button
-        variant={ThemeButton.CLEAR}
+        variant={ButtonTheme.CLEAR}
         onClick={toggleLang}
       >
         {collapsed ? t('lang') : t('langCollapsed')}

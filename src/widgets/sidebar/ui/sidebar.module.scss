@@ -7,6 +7,12 @@
 
   &.collapsed {
     width: var(--sidebar-width-collapsed);
+
+    .link span {
+      width: 0;
+      opacity: 0;
+      transition: 0.3s;
+    }
   }
 
   .switchers {
@@ -20,4 +26,29 @@
     flex-wrap: wrap;
     gap: 5px 20px;
   }
+
+  &_nav {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: 0.3s;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+}
+
+.collapseBtn {
+  position: absolute;
+  bottom: 40px;
+  right: -40px;
 }

@@ -1,11 +1,14 @@
 import React from 'react';
 import { classNames } from 'shared/lib';
-import { Button, ThemeButton } from 'shared/ui';
+import { AppLink, AppLinkTheme, Button, ButtonTheme } from 'shared/ui';
 import { ThemeSwitcher } from 'widgets/theme-switcher';
 import { LangSwitcher } from 'widgets/lang-switcher';
-import { useTranslation } from 'react-i18next';
 
 import styles from './sidebar.module.scss';
+import { ButtonSize } from 'shared/ui/button/button';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config';
+import { IconHome, IconList } from 'shared/assets/icons';
 
 interface Props {
   className?: string;
@@ -13,7 +16,7 @@ interface Props {
 
 const Sidebar: React.FC<Props> = (props) => {
   const { className = '' } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const [collapsed, setCollapsed] = React.useState<boolean>(false)
   const toggleCollapse = () => setCollapsed(prev => !prev)
 
@@ -21,11 +24,34 @@ const Sidebar: React.FC<Props> = (props) => {
     <div data-testid='sidebar' className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
       <Button
         data-testid='sidebar-toggle'
-        variant={ThemeButton.CLEAR}
+        variant={ButtonTheme.BACKGROUND_INVERTED}
+        size={ButtonSize.M}
         onClick={toggleCollapse}
+        className={classNames(styles.collapseBtn)}
+        square
       >
-        {t('toggleCollapse')}
+        {collapsed ? '>' : '<'}
       </Button>
+
+      <div className={styles.sidebar_nav}>
+        <AppLink
+          to={RoutePath.main}
+          className={classNames(styles.item, {}, [styles.link])}
+          theme={AppLinkTheme.INVERTED}
+        >
+          <IconHome className={styles.icon} />
+          <span>{t('main')}</span>
+        </AppLink>
+
+        <AppLink
+          to={RoutePath.about}
+          className={classNames(styles.item, {}, [styles.link])}
+          theme={AppLinkTheme.INVERTED}
+        >
+          <IconList className={styles.icon} />
+          <span>{t('about')}</span>
+        </AppLink>
+      </div>
 
       <div className={styles.switchers}>
         <ThemeSwitcher />

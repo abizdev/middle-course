@@ -11,7 +11,7 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "build:prod": "webpack build --env mode=production",
     "build:dev": "webpack build --env mode=development",
-    "unit": "jest --config ./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook --no-open",
     "build-storybook": "storybook build -c ./config/storybook "
   },
