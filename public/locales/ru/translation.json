@@ -4,5 +4,6 @@
   "lang": "Русский",
   "langCollapsed": "Ру",
   "NotFoundPage": "Страница не найдена 404",
-  "toggleCollapse": "свернуть развернуть"
+  "toggleCollapse": "свернуть развернуть",
+  "login": "Войти"
 }

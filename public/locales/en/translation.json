@@ -4,5 +4,6 @@
   "lang": "English",
   "langCollapsed": "En",
   "NotFoundPage": "Page not found 404",
-  "toggleCollapse": "toggle collapse"
+  "toggleCollapse": "toggle collapse",
+  "login": "Login"
 }

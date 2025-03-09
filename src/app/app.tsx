@@ -4,7 +4,6 @@ import { classNames } from 'shared/lib';
 import { AppRouter } from './providers/route-provider';
 import { useTheme } from './providers/theme-provider';
 import { Sidebar } from 'widgets/sidebar';
-import './styles/index.scss'
 
 const App: React.FC = () => {
   const { theme } = useTheme()

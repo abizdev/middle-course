@@ -1,9 +1,13 @@
 import AppLink, { AppLinkTheme } from './app-link/app-link';
 import Button, { ButtonTheme } from './button/button';
+import Modal from './modal/modal'
+import Portal from './portal/portal';
 
 export {
   AppLink,
   AppLinkTheme,
   Button,
-  ButtonTheme
+  ButtonTheme,
+  Modal,
+  Portal
 };

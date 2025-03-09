@@ -3,6 +3,7 @@ import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 import i18next from 'eslint-plugin-i18next';
+import reactHooks from 'eslint-plugin-react-hooks';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -22,6 +23,7 @@ export default [
         ...globals.jest
       },
     },
+    plugins: { 'react-hooks': reactHooks },
     rules: {
       quotes: [2, 'single'],
       semi: [2, 'always'],
@@ -36,11 +38,15 @@ export default [
       'react/jsx-props-no-spreading': 'warn',
       'import/extentions': 'off',
       'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['data-testid'] }],
-      'max-len': ['error', { 'ignoreComments': true, code: 100 }]
+      'max-len': ['error', { 'ignoreComments': true, code: 100 }],
+      'jsx-a11y/no-static-element-interaction': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
   
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat['jsx-runtime'],
   i18next.configs['flat/recommended'],
+  reactHooks.configs['recommended-latest']
 ];
