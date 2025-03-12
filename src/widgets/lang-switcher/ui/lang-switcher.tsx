@@ -11,8 +11,8 @@ const LangSwitcher: React.FC<Props> = (props) => {
   const { collapsed, className = '' } = props;
   const {t, i18n} = useTranslation()
 
-  const toggleLang = (): void => {
-    i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en')
+  const toggleLang = async () => {
+    await i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en')
   }
 
   return (
@@ -21,7 +21,7 @@ const LangSwitcher: React.FC<Props> = (props) => {
         variant={ButtonTheme.CLEAR}
         onClick={toggleLang}
       >
-        {collapsed ? t('lang') : t('langCollapsed')}
+        {collapsed ? t('langCollapsed') : t('lang')}
       </Button>
     </div>
   )

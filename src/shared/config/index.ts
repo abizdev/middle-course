@@ -1,5 +1,5 @@
 import { routeConfig, RoutePath } from '../config/router-config/router-config';
-import i18nForTests from './i18n/i18n-for-tests';
+import i18nForTests from './i18n/i18n';
 import { StyleDecorator } from './storybook/style-decorator';
 import { ThemeDecorator } from './storybook/theme-decorator';
 import { RouterDecorator } from './storybook/router-decorator';
