@@ -4,6 +4,7 @@ import { counterReducer, getCounter } from './counter-selector';
 describe('counter selector test', () => {
   const state: StateSchema = {
     counter: { value: 10 },
+    user: {}
   }
 
   test('counterReducer', () => {

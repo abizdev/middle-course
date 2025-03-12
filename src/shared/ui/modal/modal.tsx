@@ -10,6 +10,7 @@ interface Props {
   onClose: () => void;
   className?: string;
   children: React.ReactNode;
+  lazy?: boolean;
 }
 
 const Modal: React.FC<Props> = (props) => {
@@ -18,6 +19,7 @@ const Modal: React.FC<Props> = (props) => {
     onClose,
     className = '',
     children,
+    lazy
   } = props
   const { theme } = useTheme();
 
@@ -44,6 +46,10 @@ const Modal: React.FC<Props> = (props) => {
   }, [onClose]);
 
   const onContentCLick = (event: React.MouseEvent) => event.stopPropagation()
+
+  if (lazy && !open) {
+    return null;
+  }
 
   return (
     <Portal>
