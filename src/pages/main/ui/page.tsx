@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './style.module.scss';
+import { Counter } from 'entities/counter';
 
 const MainPage: React.FC = () => {
   return (
     <div className={styles.testStyle}>
-      main page
+      <Counter />
     </div>
   );
 };
