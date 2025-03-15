@@ -53,9 +53,9 @@ const Modal: React.FC<Props> = (props) => {
 
   return (
     <Portal>
-      <div className={classNames(styles.modal, mods, [className, theme, 'app_modal'])}>
+      <div className={classNames(styles.modal, mods, [theme, 'app_modal'])}>
         <div className={classNames(styles.overlay)} onClick={onClose}>
-           <div className={styles.content} onClick={onContentCLick}>
+           <div className={classNames(styles.content, {}, [className])} onClick={onContentCLick}>
              {children}
            </div>
         </div>
