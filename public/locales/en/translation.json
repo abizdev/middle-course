@@ -5,5 +5,8 @@
   "langCollapsed": "En",
   "NotFoundPage": "Page not found 404",
   "toggleCollapse": "toggle collapse",
-  "login": "Login"
+  "login": "Login",
+  "logout": "Logout",
+  "loginForm": "Login Form",
+  "loginErrorText": "Login or password not correct"
 }

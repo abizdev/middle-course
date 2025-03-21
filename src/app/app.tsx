@@ -4,9 +4,16 @@ import { classNames } from 'shared/lib';
 import { AppRouter } from './providers/route-provider';
 import { useTheme } from './providers/theme-provider';
 import { Sidebar } from 'widgets/sidebar';
+import { useAppDispatch } from 'app/providers/store-provider';
+import { userActions } from 'entities/user';
 
 const App: React.FC = () => {
   const { theme } = useTheme()
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+   dispatch(userActions.initAuthData())
+  }, [dispatch])
 
   return (
     <div className={classNames('app', {}, [theme])}>

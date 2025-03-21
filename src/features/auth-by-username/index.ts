@@ -1,4 +1,5 @@
 import LoginModal from './ui/login-modal/login-modal';
-import LoginForm from './ui/login-form/login-form';
 
-export { LoginModal, LoginForm };
+export { LoginModal };
+export { LoginSchema } from './model/login-schema'
+export { loginReducer } from './model/login-slice/login-slice'

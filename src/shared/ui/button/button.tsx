@@ -23,13 +23,23 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   className?: string;
   square?: boolean;
+  disabled?: boolean;
 }
 
 const Button: React.FC<Props> = (props) => {
-  const { variant, size = ButtonSize.M, children, className = '', square = false, ...otherProps } = props
+  const {
+    variant,
+    size = ButtonSize.M,
+    children,
+    className = '',
+    square = false,
+    disabled = false,
+    ...otherProps
+  } = props
 
   const mods: Record<string, boolean> = {
-     [styles.square]: square
+    [styles.square]: square,
+    [styles.disabled]: disabled
   }
 
   const additionals: string[] = [className, styles[variant], styles[size]];

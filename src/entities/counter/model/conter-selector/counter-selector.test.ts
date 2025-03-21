@@ -1,10 +1,11 @@
 import { StateSchema } from 'app/providers/store-provider';
 import { counterReducer, getCounter } from './counter-selector';
 
-describe('counter selector test', () => {
+describe('counter login-selector test', () => {
   const state: StateSchema = {
     counter: { value: 10 },
-    user: {}
+    user: {},
+    login: { username: '', password: '', isLoading: false }
   }
 
   test('counterReducer', () => {

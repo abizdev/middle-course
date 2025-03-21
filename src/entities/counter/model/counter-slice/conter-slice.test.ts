@@ -1,7 +1,7 @@
 import { CounterSchema } from '../counter-schema';
 import { counterActions, counterReducer } from './counter-slice';
 
-describe('counter slice test', () => {
+describe('counter login-slice test', () => {
   const state: CounterSchema = { value: 10 };
 
   test('increment', () => {

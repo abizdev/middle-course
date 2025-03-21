@@ -5,5 +5,8 @@
   "langCollapsed": "Ру",
   "NotFoundPage": "Страница не найдена 404",
   "toggleCollapse": "свернуть развернуть",
-  "login": "Войти"
+  "login": "Войти",
+  "logout": "Выйти",
+  "loginForm": "Форма регистрации",
+  "loginErrorText": "Логин или пароль введены не правильно"
 }

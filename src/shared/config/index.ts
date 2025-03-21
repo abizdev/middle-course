@@ -1,7 +1,10 @@
-import { routeConfig, RoutePath } from '../config/router-config/router-config';
 import i18nForTests from './i18n/i18n';
-import { StyleDecorator } from './storybook/style-decorator';
-import { ThemeDecorator } from './storybook/theme-decorator';
-import { RouterDecorator } from './storybook/router-decorator';
+export { routeConfig, RoutePath } from '../config/router-config/router-config';
+export { StyleDecorator } from './storybook/style-decorator';
+export { ThemeDecorator } from './storybook/theme-decorator';
+export { RouterDecorator } from './storybook/router-decorator';
+export { StoreDecorator } from './storybook/store-decorator';
 
-export { routeConfig, i18nForTests, StyleDecorator, ThemeDecorator, RouterDecorator, RoutePath };
+export {
+  i18nForTests,
+};
