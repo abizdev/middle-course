@@ -24,9 +24,10 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   square?: boolean;
   disabled?: boolean;
+  children?: React.ReactNode;
 }
 
-const Button: React.FC<Props> = (props) => {
+const Button: React.FC<Props> = React.memo((props) => {
   const {
     variant,
     size = ButtonSize.M,
@@ -52,6 +53,6 @@ const Button: React.FC<Props> = (props) => {
       {children}
     </button>
   );
-};
+});
 
 export default Button;

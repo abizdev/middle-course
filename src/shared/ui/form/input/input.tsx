@@ -21,7 +21,7 @@ interface Props extends HTMLInputProps {
   error?: boolean;
 }
 
-const Input: React.FC<Props> = (props) => {
+const Input: React.FC<Props> = React.memo((props) => {
   const {
     type = 'text',
     size = InputSize.M,
@@ -52,6 +52,6 @@ const Input: React.FC<Props> = (props) => {
       />
     </div>
   );
-};
+});
 
 export default Input;

@@ -13,7 +13,7 @@ interface Props {
   className?: string;
 }
 
-const Navbar: React.FC<Props> = (props) => {
+const Navbar: React.FC<Props> = React.memo((props) => {
   const {
     className = '',
   } = props;
@@ -60,6 +60,6 @@ const Navbar: React.FC<Props> = (props) => {
       {isModalOpen && <LoginModal open={isModalOpen} onClose={onToggleModal} />}
     </div>
   );
-};
+});
 
 export default Navbar;

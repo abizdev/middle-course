@@ -1,5 +1,4 @@
-import { CounterSchema } from '../counter-schema';
-import { counterActions, counterReducer } from './counter-slice';
+
 import { LoginSchema } from 'features/auth-by-username';
 import { loginActions, loginReducer } from 'features/auth-by-username/model/login-slice/login-slice';
 

@@ -14,7 +14,7 @@ interface Props extends LinkProps {
   className?: string;
 }
 
-const AppLink: React.FC<Props> = (props) => {
+const AppLink: React.FC<Props> = React.memo((props) => {
   const {
     theme = AppLinkTheme.PRIMARY,
     className = '',
@@ -32,6 +32,6 @@ const AppLink: React.FC<Props> = (props) => {
       {children}
     </Link>
   );
-};
+});
 
 export default AppLink;

@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-const LangSwitcher: React.FC<Props> = (props) => {
+const LangSwitcher: React.FC<Props> = React.memo((props) => {
   const { collapsed, className = '' } = props;
   const {t, i18n} = useTranslation()
 
@@ -25,6 +25,6 @@ const LangSwitcher: React.FC<Props> = (props) => {
       </Button>
     </div>
   )
-};
+});
 
 export default LangSwitcher;

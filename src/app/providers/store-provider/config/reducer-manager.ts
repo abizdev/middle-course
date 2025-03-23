@@ -1,4 +1,4 @@
-import { AsyncReducers, ReducerManager, StateSchema, StateSchemaKeys } from './store-schema';
+import { ReducerManager, StateSchema, StateSchemaKeys } from './store-schema';
 import { Action, combineReducers, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
@@ -10,7 +10,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
 
   return {
     getReducerMap: () => reducers,
-    reduce: (state: AsyncReducers, action: Action) => {
+    reduce: (state: StateSchema, action: Action) => {
 
       if (keysToRemove.length > 0) {
         state = { ...state }

@@ -5,7 +5,7 @@ import { IconMoon, IconSun } from 'shared/assets/icons';
 
 import styles from './theme-switcher.module.scss';
 
-const ThemeSwitcher: React.FC = () => {
+const ThemeSwitcher: React.FC = React.memo(() => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -13,6 +13,6 @@ const ThemeSwitcher: React.FC = () => {
       {theme === Theme.DARK ? <IconMoon /> : <IconSun />}
     </Button>
   );
-};
+});
 
 export default ThemeSwitcher;

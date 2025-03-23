@@ -1,22 +1,20 @@
 import React from 'react';
 import { classNames } from 'shared/lib';
-import { AppLink, AppLinkTheme, Button, ButtonTheme } from 'shared/ui';
+import { Button, ButtonTheme } from 'shared/ui';
 import { ThemeSwitcher } from 'widgets/theme-switcher';
 import { LangSwitcher } from 'widgets/lang-switcher';
 
 import styles from './sidebar.module.scss';
 import { ButtonSize } from 'shared/ui/button/button';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config';
-import { IconHome, IconList } from 'shared/assets/icons';
+import { SidebarItemsList } from '../../model/items';
+import SidebarItem from '../../sidebar-item/sidebar-item';
 
 interface Props {
   className?: string;
 }
 
-const Sidebar: React.FC<Props> = (props) => {
+const Sidebar: React.FC<Props> = React.memo((props) => {
   const { className = '' } = props;
-  const { t } = useTranslation()
   const [collapsed, setCollapsed] = React.useState<boolean>(false)
   const toggleCollapse = () => setCollapsed(prev => !prev)
 
@@ -34,23 +32,9 @@ const Sidebar: React.FC<Props> = (props) => {
       </Button>
 
       <div className={styles.sidebar_nav}>
-        <AppLink
-          to={RoutePath.main}
-          className={classNames(styles.item, {}, [styles.link])}
-          theme={AppLinkTheme.INVERTED}
-        >
-          <IconHome className={styles.icon} />
-          <span>{t('main')}</span>
-        </AppLink>
-
-        <AppLink
-          to={RoutePath.about}
-          className={classNames(styles.item, {}, [styles.link])}
-          theme={AppLinkTheme.INVERTED}
-        >
-          <IconList className={styles.icon} />
-          <span>{t('about')}</span>
-        </AppLink>
+        {SidebarItemsList.map(item => (
+            <SidebarItem item={item} collapsed={collapsed} />
+        ))}
       </div>
 
       <div className={styles.switchers}>
@@ -59,6 +43,6 @@ const Sidebar: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default Sidebar;

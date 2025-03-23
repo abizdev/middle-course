@@ -17,7 +17,7 @@ interface Props {
   theme?: TypographyTheme;
 }
 
-const Typography: React.FC<Props> = (props) => {
+const Typography: React.FC<Props> = React.memo((props) => {
   const {
     className = '',
     text,
@@ -31,6 +31,6 @@ const Typography: React.FC<Props> = (props) => {
       {title && <p className={styles.text}>{text}</p>}
     </div>
   );
-};
+});
 
 export default Typography;

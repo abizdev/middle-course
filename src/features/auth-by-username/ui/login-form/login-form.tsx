@@ -19,13 +19,14 @@ import { useAppDispatch } from 'app/providers/store-provider';
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   'login': loginReducer
 }
 
-const LoginForm: React.FC<LoginFormProps> = React.memo(({ className = '' }) => {
+const LoginForm: React.FC<LoginFormProps> = React.memo(({ className = '', onSuccess }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
@@ -42,9 +43,12 @@ const LoginForm: React.FC<LoginFormProps> = React.memo(({ className = '' }) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
-  const onLoginClick = React.useCallback(() => {
-    dispatch(loginByUsername({ username, password }))
-  }, [dispatch, username, password])
+  const onLoginClick = React.useCallback(async () => {
+    const result = dispatch(loginByUsername({ username, password }))
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+    }
+  }, [onSuccess, dispatch, username, password])
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>

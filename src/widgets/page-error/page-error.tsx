@@ -3,7 +3,7 @@ import { AppLink, Button, ButtonTheme } from 'shared/ui';
 
 import styles from './page-error.module.scss';
 
-const PageError: React.FC = ({}) => {
+const PageError: React.FC = React.memo(() => {
   return (
     <div className={styles.pageError}>
       <h1>Something went wrong</h1>
@@ -12,6 +12,6 @@ const PageError: React.FC = ({}) => {
       </Button>
     </div>
   );
-};
+});
 
 export default PageError;

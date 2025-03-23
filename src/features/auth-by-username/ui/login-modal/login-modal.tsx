@@ -22,7 +22,7 @@ const LoginModal: React.FC<Props> = (props) => {
   return (
     <Modal className={classNames(styles.loginModal, {}, [className])} open={open} onClose={onClose} lazy>
       <React.Suspense fallback={'loading'}>
-        <LoginFormAsync />
+        <LoginFormAsync onSuccess={onClose} />
       </React.Suspense>
     </Modal>
   );
