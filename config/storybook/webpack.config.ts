@@ -52,6 +52,7 @@ export default ({ config }: { config: webpack.Configuration}) => {
   config?.plugins?.push(
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(true), // or process.env.NODE_ENV !== 'production'
+      __API__: JSON.stringify(''), // or process.env.NODE_ENV !== 'production'
     })
   )
 

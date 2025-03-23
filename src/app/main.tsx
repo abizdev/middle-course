@@ -10,13 +10,13 @@ import 'shared/config/i18n/i18n'
 // @ts-ignore
 const root: Root = createRoot(document.getElementById('root'));
 root.render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </ErrorBoundary>
-    </BrowserRouter>
-  </StoreProvider>
+    </StoreProvider>
+  </BrowserRouter>
 );

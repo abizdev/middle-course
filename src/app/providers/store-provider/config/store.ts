@@ -3,11 +3,14 @@ import { ReduxStoreWithManager, StateSchema } from './store-schema';
 import { counterReducer } from 'entities/counter';
 import { userReducer } from 'entities/user';
 import { createReducerManager } from 'app/providers/store-provider/config/reducer-manager';
+import { $api } from 'shared/api/api';
+import { N as NavigateOptions, T as To } from 'react-router/dist/development/route-data-aSUFWnQ6';
 
 export const createReduxStore = (
   initialState?:  StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>
-): ReduxStoreWithManager => {
+  asyncReducers?: ReducersMapObject<StateSchema>,
+  navigate?: (to: To, options?: NavigateOptions) => void | Promise<void>
+) => {
   const rootReducer: ReducersMapObject<StateSchema> = combineReducers({
     ...asyncReducers,
     counter: counterReducer,
@@ -19,7 +22,15 @@ export const createReduxStore = (
   const store: ReduxStoreWithManager = configureStore<StateSchema>({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: getDefaultMiddleware =>  getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          api: $api,
+          navigate
+        },
+      }
+    })
   })
 
   store.reducerManager = reducerManager
