@@ -1,7 +1,8 @@
 import React from 'react';
 import { Modal } from 'shared/ui';
 import { classNames } from 'shared/lib';
-import LoginForm from '../login-form/login-form';
+// import LoginForm from '../login-form/login-form';
+import LoginFormAsync from '../login-form/login-form.async';
 
 import styles from './login-modal.module.scss';
 
@@ -20,7 +21,9 @@ const LoginModal: React.FC<Props> = (props) => {
 
   return (
     <Modal className={classNames(styles.loginModal, {}, [className])} open={open} onClose={onClose} lazy>
-      <LoginForm />
+      <React.Suspense fallback={'loading'}>
+        <LoginFormAsync />
+      </React.Suspense>
     </Modal>
   );
 };

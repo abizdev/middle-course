@@ -1,24 +1,38 @@
 import React from 'react';
 
 import styles from './login-form.module.scss';
-import { classNames } from 'shared/lib';
-import { Button, ButtonTheme, Input, TypographyTheme } from 'shared/ui';
+import { classNames, DynamicModuleLoader, ReducersList } from 'shared/lib';
+import { Button, ButtonTheme, Input, Typography, TypographyTheme } from 'shared/ui';
 import { InputSize } from 'shared/ui/form/input/input';
 import { useTranslation } from 'react-i18next';
 import { ButtonSize } from 'shared/ui/button/button';
 import { useSelector } from 'react-redux';
-import { loginActions } from '../../model/login-slice/login-slice';
-import { loginState, selectPassword, selectUsername } from '../../model/login-selector/login-selector';
+import { loginActions, loginReducer } from '../../model/login-slice/login-slice';
+import {
+  selectError,
+  selectIsLoading,
+  selectPassword,
+  selectUsername
+} from '../../model/login-selector/login-selector';
 import { loginByUsername } from '../../model/login-service/login-by-username/login-by-username';
 import { useAppDispatch } from 'app/providers/store-provider';
-import Typography from 'shared/ui/typography/typography';
 
-const LoginForm: React.FC = () => {
+export interface LoginFormProps {
+  className?: string;
+}
+
+const initialReducers: ReducersList = {
+  'login': loginReducer
+}
+
+const LoginForm: React.FC<LoginFormProps> = React.memo(({ className = '' }) => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
   const username = useSelector(selectUsername)
   const password = useSelector(selectPassword)
-  const { error, isLoading } = useSelector(loginState)
-  const dispatch = useAppDispatch();
+  const isLoading = useSelector(selectIsLoading)
+  const error = useSelector(selectError)
 
   const onChangeUsername = React.useCallback((value: string)=> {
     dispatch(loginActions.setUsername(value));
@@ -33,33 +47,35 @@ const LoginForm: React.FC = () => {
   }, [dispatch, username, password])
 
   return (
-    <div className={classNames(styles.loginForm)}>
-      <Typography title={t('loginForm')} />
-      {error && <Typography theme={TypographyTheme.error} text={error} />}
-      <Input
-        placeholder='login'
-        size={InputSize.XL}
-        onChange={onChangeUsername}
-        value={username}
-      />
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <div className={classNames(styles.loginForm, {}, [className])}>
+        <Typography title={t('loginForm')} />
+        {error && <Typography theme={TypographyTheme.error} text={error} />}
+        <Input
+          placeholder='login'
+          size={InputSize.XL}
+          onChange={onChangeUsername}
+          value={username}
+        />
 
-      <Input
-        type='password'
-        placeholder='password'
-        onChange={onChangePassword}
-        value={password}
-      />
+        <Input
+          type='password'
+          placeholder='password'
+          onChange={onChangePassword}
+          value={password}
+        />
 
-      <Button
-        variant={ButtonTheme.OUTLINE}
-        size={ButtonSize.M}
-        onClick={onLoginClick}
-        disabled={isLoading}
-      >
-        {t('login')}
-      </Button>
-    </div>
+        <Button
+          variant={ButtonTheme.OUTLINE}
+          size={ButtonSize.M}
+          onClick={onLoginClick}
+          disabled={isLoading}
+        >
+          {t('login')}
+        </Button>
+      </div>
+    </DynamicModuleLoader>
   );
-};
+});
 
 export default LoginForm;

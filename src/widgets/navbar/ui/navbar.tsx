@@ -57,7 +57,7 @@ const Navbar: React.FC<Props> = (props) => {
         </Button>
       </div>
 
-      <LoginModal open={isModalOpen} onClose={onToggleModal} />
+      {isModalOpen && <LoginModal open={isModalOpen} onClose={onToggleModal} />}
     </div>
   );
 };
