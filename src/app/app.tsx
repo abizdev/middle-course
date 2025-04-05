@@ -8,12 +8,12 @@ import { useAppDispatch } from 'app/providers/store-provider';
 import { userActions } from 'entities/user';
 
 const App: React.FC = () => {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-   dispatch(userActions.initAuthData())
-  }, [dispatch])
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <div className={classNames('app', {}, [theme])}>

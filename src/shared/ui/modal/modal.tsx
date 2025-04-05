@@ -20,12 +20,12 @@ const Modal: React.FC<Props> = (props) => {
     className = '',
     children,
     lazy
-  } = props
+  } = props;
   const { theme } = useTheme();
 
   const mods = {
-    [styles.opened]: open,
-  }
+    [styles.opened]: open
+  };
 
   React.useEffect(() => {
     if (open) {
@@ -33,9 +33,9 @@ const Modal: React.FC<Props> = (props) => {
     }
 
     return () => {
-      window.removeEventListener('keydown', onKeyDown)
-    }
-  }, [open])
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
 
   const onKeyDown = React.useCallback((event: KeyboardEvent) => {
     if (event.key !== 'Escape') {
@@ -45,7 +45,7 @@ const Modal: React.FC<Props> = (props) => {
     onClose();
   }, [onClose]);
 
-  const onContentCLick = (event: React.MouseEvent) => event.stopPropagation()
+  const onContentCLick = (event: React.MouseEvent) => event.stopPropagation();
 
   if (lazy && !open) {
     return null;
@@ -55,9 +55,9 @@ const Modal: React.FC<Props> = (props) => {
     <Portal>
       <div className={classNames(styles.modal, mods, [theme, 'app_modal'])}>
         <div className={classNames(styles.overlay)} onClick={onClose}>
-           <div className={classNames(styles.content, {}, [className])} onClick={onContentCLick}>
-             {children}
-           </div>
+          <div className={classNames(styles.content, {}, [className])} onClick={onContentCLick}>
+            {children}
+          </div>
         </div>
       </div>
     </Portal>

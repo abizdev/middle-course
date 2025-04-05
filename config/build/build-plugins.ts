@@ -26,7 +26,7 @@ const buildPlugins = (options: BuildOptions) => {
     }));
   }
 
-  return plugins
+  return plugins;
 };
 
 export default buildPlugins;

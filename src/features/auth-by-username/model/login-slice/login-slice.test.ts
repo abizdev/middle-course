@@ -1,6 +1,8 @@
-
 import { LoginSchema } from 'features/auth-by-username';
-import { loginActions, loginReducer } from 'features/auth-by-username/model/login-slice/login-slice';
+import {
+  loginActions,
+  loginReducer
+} from 'features/auth-by-username/model/login-slice/login-slice';
 
 describe('counter login-slice test', () => {
   const state: LoginSchema = {
@@ -11,10 +13,10 @@ describe('counter login-slice test', () => {
   };
 
   test('set username', () => {
-    expect(loginReducer(state, loginActions.setUsername('123'))).toEqual({ username: '123' });
+    expect(loginReducer(state, loginActions.setUsername('123'))).toEqual({username: '123'});
   });
 
   test('set password', () => {
-    expect(loginReducer(state, loginActions.setPassword('123'))).toEqual({ password: '123' });
+    expect(loginReducer(state, loginActions.setPassword('123'))).toEqual({password: '123'});
   });
 });

@@ -24,4 +24,4 @@ export const SidebarItemsList: SidebarItem[] = [
     text: 'profile',
     icon: IconList
   }
-]
+];

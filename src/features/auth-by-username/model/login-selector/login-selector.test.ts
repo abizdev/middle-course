@@ -1,12 +1,18 @@
-import { loginState, selectError, selectIsLoading, selectPassword, selectUsername } from './login-selector';
+import {
+  loginState,
+  selectError,
+  selectIsLoading,
+  selectPassword,
+  selectUsername
+} from './login-selector';
 import { StateSchema } from 'app/providers/store-provider';
 
 describe('login by username test', () => {
   const state: StateSchema = {
-    counter: { value: 10 },
+    counter: {value: 10},
     user: {},
-    login: { username: 'admin', password: '123', isLoading: false, error: 'error' },
-  }
+    login: {username: 'admin', password: '123', isLoading: false, error: 'error'}
+  };
 
   test('loginState', () => {
     expect(loginState(state)).toEqual(state.login);
@@ -30,10 +36,10 @@ describe('login by username test', () => {
 
   test('empty state', () => {
     const loginState = {
-      counter: { value: 10 },
+      counter: {value: 10},
       user: {},
-      login: {username: 'admin', password: '123', isLoading: false,}
-    }
+      login: {username: 'admin', password: '123', isLoading: false}
+    };
     expect(selectError(loginState)).toBe(undefined);
-  })
+  });
 });

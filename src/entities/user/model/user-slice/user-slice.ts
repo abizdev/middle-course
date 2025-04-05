@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User, UserSchema } from '../user-schema';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const';
 
-const initialState: UserSchema = {}
+const initialState: UserSchema = {};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -22,7 +22,7 @@ export const userSlice = createSlice({
       localStorage.removeItem(USER_LOCALSTORAGE_KEY);
     }
   }
-})
+});
 
-export const { actions: userActions } = userSlice
-export const { reducer: userReducer } = userSlice
+export const { actions: userActions } = userSlice;
+export const { reducer: userReducer } = userSlice;

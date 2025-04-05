@@ -1,21 +1,30 @@
 import React from 'react';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib';
-import { profileReducer } from 'entities/profile';
+import { classNames, DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/profile';
 
 interface Props {
-
+  className?: string;
 }
 
 const reducers: ReducersList = {
-  profile: profileReducer,
-}
+  profile: profileReducer
+};
 
-const ProfilePage: React.FC<Props> = React.memo(({}) => {
+const ProfilePage = React.memo(({ className }: Props) => {
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div>profile</div>
+      <div className={classNames('', {}, [className])}>
+        <ProfileCard />
+      </div>
     </DynamicModuleLoader>
   );
 });
 
+ProfilePage.displayName = 'ProfilePage';
 export default ProfilePage;

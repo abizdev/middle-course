@@ -35,26 +35,14 @@ export default ({ config }: { config: webpack.Configuration}) => {
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack'],
   });
-  // @ts-ignore
-  // config?.module?.rules?.map((rule:  webpack.RuleSetRule) => {
-  //   if ( /svg/.test(rule.test as string)) {
-  //     return { ...rule, exclude:  /\.svg$/i }
-  //   }
-  //
-  //   return rule
-  // });
-  // config?.module?.rules?.push({
-  //   test: /\.svg$/i,
-  //   issuer: /\.[jt]sx?$/,
-  //   use: ['@svgr/webpack'],
-  // })
+
   config?.module?.rules?.push(buildCssLoader(true));
   config?.plugins?.push(
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(true), // or process.env.NODE_ENV !== 'production'
       __API__: JSON.stringify(''), // or process.env.NODE_ENV !== 'production'
     })
-  )
+  );
 
   return config;
 };

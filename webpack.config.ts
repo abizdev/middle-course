@@ -19,6 +19,7 @@ export default (env: BuildEnv) => {
     output: path.resolve(__dirname, 'dist'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
+
   };
 
   const config = buildWebpackConfig({
@@ -26,6 +27,7 @@ export default (env: BuildEnv) => {
     paths,
     port,
     isDev,
+    apiUrl
   });
 
 
