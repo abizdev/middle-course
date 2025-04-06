@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import {
   DynamicReducers,
   ReduxStoreWithManager,
@@ -16,11 +16,11 @@ export const createReduxStore = (
   asyncReducers?: DynamicReducers,
   navigate?: (to: To, options?: NavigateOptions) => void | Promise<void>
 ) => {
-  const rootReducer = combineReducers({
+  const rootReducer: ReducersMapObject<StaticReducers> = {
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer
-  });
+  };
 
   const reducerManager = createReducerManager(rootReducer);
 

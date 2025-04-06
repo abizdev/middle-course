@@ -5,5 +5,5 @@ export const counterReducer = (state: StaticReducers) => state.counter;
 
 export const getCounter = createSelector(
   counterReducer,
-  (state) => state?.value
+  (state) => state.value
 );
