@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from 'react';
 import { classNames } from 'shared/lib';
 
-import styles from './input.module.scss'
+import styles from './input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'size'>
 
@@ -21,7 +21,7 @@ interface Props extends HTMLInputProps {
   error?: boolean;
 }
 
-const Input: React.FC<Props> = React.memo((props) => {
+const Input = React.memo((props: Props) => {
   const {
     type = 'text',
     size = InputSize.M,
@@ -29,18 +29,18 @@ const Input: React.FC<Props> = React.memo((props) => {
     placeholder = '',
     value,
     error = false,
-    onChange,
-  } = props
+    onChange
+  } = props;
 
   const mods: Record<string, boolean> = {
     [styles.error]: error
-  }
+  };
 
-  const additionals: string[] = [className, styles[size]]
+  const additionals: string[] = [className, styles[size]];
 
   const onChangeEvent = (event: React.ChangeEvent<HTMLInputElement>): void => {
     onChange?.(event.target.value);
-  }
+  };
 
   return (
     <div className={classNames(styles.inputWrapper, mods, additionals)}>
@@ -54,4 +54,5 @@ const Input: React.FC<Props> = React.memo((props) => {
   );
 });
 
+Input.displayName = 'Input';
 export default Input;

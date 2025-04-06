@@ -1,6 +1,6 @@
 import React from 'react';
 import { classNames, DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib';
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/profile';
+import { ProfileCard, profileReducer } from 'entities/profile';
 
 interface Props {
   className?: string;
@@ -14,7 +14,7 @@ const ProfilePage = React.memo(({ className }: Props) => {
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchProfileData());
+    // dispatch(fetchProfileData());
   }, [dispatch]);
 
   return (

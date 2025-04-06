@@ -12,15 +12,15 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
+        date: /Date$/i
+      }
+    }
   },
   decorators: [
     StyleDecorator,
     RouterDecorator,
     StoreDecorator,
-    ThemeDecorator(Theme.LIGHT),
+    ThemeDecorator(Theme.LIGHT)
   ]
 };
 

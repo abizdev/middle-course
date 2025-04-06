@@ -1,15 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createReduxStore } from '../config/store';
-import { StateSchema } from '../config/store-schema';
 import { useNavigate } from 'react-router';
-import { ReducersList } from 'shared/lib';
-
+import { DynamicReducers, StaticReducers } from '../config/store-schema';
 
 interface Props {
   children: React.ReactNode;
-  initialState?: StateSchema;
-  asyncReducers?: ReducersList;
+  initialState?: StaticReducers;
+  asyncReducers?: DynamicReducers;
 }
 
 const StoreProvider: React.FC<Props> = (props) => {

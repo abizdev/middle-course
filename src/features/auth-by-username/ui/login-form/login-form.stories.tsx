@@ -6,10 +6,11 @@ const meta = {
   title: 'features/LoginForm',
   component: LoginForm,
   tags: ['autodocs'],
-  args: {},
+  args: {}
 } satisfies Meta<typeof LoginForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Form: Story = {}
+// @ts-ignore
+export const Form: Story = {};

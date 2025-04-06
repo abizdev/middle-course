@@ -1,30 +1,25 @@
+import { AxiosInstance } from 'axios';
+import { EnhancedStore } from '@reduxjs/toolkit';
+import { NavigateOptions, To } from 'react-router';
+import { ReducerManager } from './reducer-manager';
+import { LoginSchema } from 'features/auth-by-username';
 import { CounterSchema } from 'entities/counter';
 import { UserSchema } from 'entities/user';
-import { LoginSchema } from 'features/auth-by-username';
-import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/profile';
-import { AxiosInstance } from 'axios';
-import { N as NavigateOptions, T as To } from 'react-router/dist/development/route-data-aSUFWnQ6';
 
-export interface StateSchema {
+export type StaticReducers = {
   counter: CounterSchema,
   user: UserSchema,
+}
 
-  // async reducers
+export type DynamicReducers = {
   login?: LoginSchema,
   profile?: ProfileSchema,
 }
 
-export type StateSchemaKeys = keyof StateSchema
+export type AllReducers = StaticReducers & DynamicReducers
 
-export interface ReducerManager {
-  getReducerMap: () => ReducersMapObject<StateSchema>,
-  reduce: (state: StateSchema, action: Action) => ReducersMapObject<StateSchema>,
-  add: (key: StateSchemaKeys, reducer: Reducer) => void
-  remove: (key: StateSchemaKeys) => void
-}
-
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
+export interface ReduxStoreWithManager extends EnhancedStore<AllReducers> {
   reducerManager: ReducerManager;
 }
 

@@ -34,6 +34,7 @@ export default [
       'react/jsx-indent-props': [ 2, 2 ],
       'no-unused-vars': [ 'off' ],
       '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/ban-ts-comment': 'off',
       'react/react-in-jsx-scope': 'off',
       'react/jsx-filename-extension': [ 2, { 'extensions': [ '.js', '.jsx', '.ts', '.tsx' ] } ],
       'react/require-default-props': 'off',

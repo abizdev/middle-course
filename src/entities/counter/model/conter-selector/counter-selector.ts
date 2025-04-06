@@ -1,9 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/store-provider';
+import { StaticReducers } from 'app/providers/store-provider';
 
-export const counterReducer = (state: StateSchema) => state.counter;
+export const counterReducer = (state: StaticReducers) => state.counter;
 
 export const getCounter = createSelector(
   counterReducer,
-  (state) => state.value
+  (state) => state?.value
 );

@@ -14,8 +14,10 @@ interface Props {
 const ProfileCard: React.FC<Props> = ({ className }) => {
   const { t } = useTranslation('profile');
   const data = useSelector(selectProfileData);
-  // const isLoading = useSelector(selectProfileIsLoading);
-  // const error = useSelector(selectProfileError);
+  const isLoading = useSelector(selectProfileIsLoading);
+  const error = useSelector(selectProfileError);
+
+  console.log(isLoading, error);
 
   return (
     <div className={classNames(styles.profileCard, {}, [className])}>
@@ -32,10 +34,30 @@ const ProfileCard: React.FC<Props> = ({ className }) => {
         />
 
         <Input
-          value={data?.first}
-          placeholder={t('name')}
+          value={data?.lastname}
+          placeholder={t('last_name')}
           className={styles.input}
         />
+
+        <Input
+          value={data?.username}
+          placeholder={t('username')}
+          className={styles.input}
+        />
+
+        <Input
+          type="number"
+          value={data?.age}
+          placeholder={t('age')}
+          className={styles.input}
+        />
+
+        <Input
+          value={data?.city}
+          placeholder={t('city')}
+          className={styles.input}
+        />
+
       </div>
     </div>
   );

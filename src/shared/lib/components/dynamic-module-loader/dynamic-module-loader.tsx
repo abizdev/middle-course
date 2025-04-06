@@ -1,14 +1,17 @@
 import React from 'react';
 import {
+  AllReducers,
+  DynamicReducers,
   ReduxStoreWithManager,
-  StateSchemaKeys,
   useAppDispatch
 } from 'app/providers/store-provider';
 import { useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
 
+export type AllReducersKeys = keyof AllReducers;
+
 export type ReducersList = {
-  [name in StateSchemaKeys]?: Reducer;
+  [key in AllReducersKeys]?: Reducer
 }
 
 interface Props {
@@ -25,19 +28,19 @@ const DynamicModuleLoader: React.FC<Props> = (props) => {
 
   React.useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StateSchemaKeys, reducer);
+      store.reducerManager.add(name as keyof DynamicReducers, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });
 
     return () => {
       if (removeAfterUnmount) {
         Object.entries(reducers).forEach(([name]) => {
-          store.reducerManager.remove(name as StateSchemaKeys);
+          store.reducerManager.remove(name);
           dispatch({ type: `@DELETE ${name} reducer` });
         });
       }
     };
-  }, []);
+  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
 
   return (
     <React.Fragment>

@@ -14,7 +14,7 @@ import {
   selectPassword,
   selectUsername
 } from '../../model/login-selector/login-selector';
-import { loginByUsername } from '../../model/login-service/login-by-username/login-by-username';
+// import { loginByUsername } from '../../model/login-service/login-by-username/login-by-username';
 import { useAppDispatch } from 'app/providers/store-provider';
 
 export interface LoginFormProps {
@@ -24,31 +24,38 @@ export interface LoginFormProps {
 
 const initialReducers: ReducersList = {
   'login': loginReducer
-}
+};
 
-const LoginForm: React.FC<LoginFormProps> = React.memo(({ className = '', onSuccess }) => {
+const LoginForm = React.memo(({ className, onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const username = useSelector(selectUsername)
-  const password = useSelector(selectPassword)
-  const isLoading = useSelector(selectIsLoading)
-  const error = useSelector(selectError)
+  const username = useSelector(selectUsername);
+  const password = useSelector(selectPassword);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
-  const onChangeUsername = React.useCallback((value: string)=> {
+  const condition = false;
+
+  const onChangeUsername = React.useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
   }, [dispatch]);
 
-  const onChangePassword = React.useCallback((value: string)=> {
+  const onChangePassword = React.useCallback((value: string) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
   const onLoginClick = React.useCallback(async () => {
-    const result = dispatch(loginByUsername({ username, password }))
-    if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess()
+    // const result = dispatch(loginByUsername({ username, password }));
+    // if (result.meta.requestStatus === 'fulfilled') {
+    //   onSuccess();
+    // }
+
+    if (condition) {
+      onSuccess();
     }
-  }, [onSuccess, dispatch, username, password])
+    console.log('login');
+  }, [condition, onSuccess]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
@@ -56,15 +63,15 @@ const LoginForm: React.FC<LoginFormProps> = React.memo(({ className = '', onSucc
         <Typography title={t('loginForm')} />
         {error && <Typography theme={TypographyTheme.error} text={error} />}
         <Input
-          placeholder='login'
+          placeholder="login"
           size={InputSize.XL}
           onChange={onChangeUsername}
           value={username}
         />
 
         <Input
-          type='password'
-          placeholder='password'
+          type="password"
+          placeholder="password"
           onChange={onChangePassword}
           value={password}
         />
@@ -82,4 +89,5 @@ const LoginForm: React.FC<LoginFormProps> = React.memo(({ className = '', onSucc
   );
 });
 
+LoginForm.displayName = 'LoginForm';
 export default LoginForm;

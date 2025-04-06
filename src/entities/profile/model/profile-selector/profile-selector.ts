@@ -1,8 +1,8 @@
-import { StateSchema } from 'app/providers/store-provider';
+import { AllReducers } from 'app/providers/store-provider';
 import { createSelector } from '@reduxjs/toolkit';
 
 export const profileState =
-  (state: StateSchema) => state.profile;
+  (state: AllReducers) => state.profile;
 
 export const selectProfileData = createSelector(
   profileState,

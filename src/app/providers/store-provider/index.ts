@@ -2,9 +2,10 @@ import StoreProvider from './ui/store-provider';
 
 export { StoreProvider };
 export {
-  StateSchema,
+  AllReducers,
+  StaticReducers,
+  DynamicReducers,
   ReduxStoreWithManager,
-  StateSchemaKeys,
   ThunkExtraArg,
   ThunkConfig
 } from './config/store-schema';

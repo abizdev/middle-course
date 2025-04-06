@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/providers/store-provider';
+import { DynamicReducers } from 'app/providers/store-provider';
 import { createSelector } from '@reduxjs/toolkit';
 
-export const loginState = (state: StateSchema) => state?.login;
+export const loginState = (state: DynamicReducers) => state?.login;
 
 export const selectUsername = createSelector(
   loginState,

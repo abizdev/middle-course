@@ -13,15 +13,16 @@ interface Props {
   className?: string;
 }
 
-const Sidebar: React.FC<Props> = React.memo((props) => {
-  const { className = '' } = props;
-  const [collapsed, setCollapsed] = React.useState<boolean>(false)
-  const toggleCollapse = () => setCollapsed(prev => !prev)
+const Sidebar = React.memo((props: Props) => {
+  const { className } = props;
+  const [collapsed, setCollapsed] = React.useState<boolean>(false);
+  const toggleCollapse = () => setCollapsed(prev => !prev);
 
   return (
-    <div data-testid='sidebar' className={classNames(styles.sidebar, {[styles.collapsed]: collapsed}, [className])}>
+    <div data-testid="sidebar"
+      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [className])}>
       <Button
-        data-testid='sidebar-toggle'
+        data-testid="sidebar-toggle"
         variant={ButtonTheme.BACKGROUND_INVERTED}
         size={ButtonSize.M}
         onClick={toggleCollapse}
@@ -33,7 +34,7 @@ const Sidebar: React.FC<Props> = React.memo((props) => {
 
       <div className={styles.sidebar_nav}>
         {SidebarItemsList.map(item => (
-            <SidebarItem item={item} collapsed={collapsed} />
+          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
         ))}
       </div>
 
@@ -45,4 +46,5 @@ const Sidebar: React.FC<Props> = React.memo((props) => {
   );
 });
 
+Sidebar.displayName = 'Sidebar';
 export default Sidebar;
